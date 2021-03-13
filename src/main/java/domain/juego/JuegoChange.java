@@ -2,6 +2,7 @@ package domain.juego;
 
 import co.com.sofka.domain.generic.EventChange;
 import domain.juego.events.JuegoCreado;
+import domain.juego.events.JugadorAgregado;
 
 public class JuegoChange extends EventChange {
 
@@ -11,6 +12,14 @@ public class JuegoChange extends EventChange {
             juego.jugadores = event.getJugadores();
             juego.juegoIniciado = Boolean.FALSE;
             juego.juegoTerminado = Boolean.FALSE;
+        });
+
+        apply((JugadorAgregado event) -> {
+            if(juego.jugadores.size() < 25){
+                juego.jugadores.put(event.getJugadorId(), new Jugador(event.getJugadorId(), event.getNombre()));
+            }else {
+                throw new IllegalArgumentException("No se pueden ingresar mas jugadores");
+            }
         });
 
     }

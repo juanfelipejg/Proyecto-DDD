@@ -22,7 +22,6 @@ public class CrearJuegoUseCase extends UseCase<RequestCommand<CrearJuego>, Respo
         }
 
         var juego = new Juego(juegoId, command.getJugadores());
-        //Emision de lista de eventos del agregagos
         emit().onResponse(new ResponseEvents(juego.getUncommittedChanges()));
     }
 }

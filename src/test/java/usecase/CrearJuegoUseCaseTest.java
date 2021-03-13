@@ -5,6 +5,7 @@ import co.com.sofka.business.support.RequestCommand;
 import domain.juego.Jugador;
 import domain.juego.command.CrearJuego;
 import domain.juego.events.JuegoCreado;
+import domain.juego.values.Nombre;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import domain.juego.values.JugadorId;
@@ -18,9 +19,9 @@ class CrearJuegoUseCaseTest {
     @Test
     void crearJuego(){
         var command = new CrearJuego(Set.of(
-                new Jugador(JugadorId.of("xxxx"), "Juan Felipe Jaramillo"),
-                new Jugador(JugadorId.of("ffff"), "David Cardona Montoya"),
-                new Jugador(JugadorId.of("tttt"), "Jhovan Espinal Zapata")
+                new Jugador(JugadorId.of("xxxx"), new Nombre("Juan Felipe Jaramillo")),
+                new Jugador(JugadorId.of("ffff"), new Nombre("David Cardona Montoya")),
+                new Jugador(JugadorId.of("tttt"), new Nombre("Jhovan Espinal Zapata"))
         ));
         var crearJuegoUseCase = new CrearJuegoUseCase();
         var events = UseCaseHandler

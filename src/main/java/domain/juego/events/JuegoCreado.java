@@ -9,6 +9,7 @@ import java.util.Map;
 public class JuegoCreado extends DomainEvent {
 
     private final Map<JugadorId, Jugador> jugadores;
+
     public JuegoCreado(Map<JugadorId, Jugador> jugadores) {
         super("NoMeMientas.domain.juego");
         this.jugadores = jugadores;

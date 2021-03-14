@@ -4,6 +4,7 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import domain.juego.values.JuegoId;
 import domain.juego.values.RondaId;
 import domain.ronda.values.DadoId;
+import domain.ronda.values.EtapaId;
 
 import java.util.Map;
 

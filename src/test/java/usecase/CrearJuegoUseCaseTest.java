@@ -14,7 +14,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CrearJuegoUsePropuestaTest {
+class CrearJuegoUseCaseTest {
 
     @Test
     void crearJuego(){

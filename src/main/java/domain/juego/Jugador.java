@@ -8,26 +8,24 @@ import domain.juego.values.Propuesta;
 
 public class Jugador extends Entity<JugadorId> {
 
-    private Nombre nombre;
+    private final Nombre nombre;
     private Capital capital;
-    private Propuesta propuesta;
-    boolean jugandoEtapa;
 
-    public Jugador(JugadorId entityId, Nombre nombre, Capital capital, Propuesta propuesta, boolean jugandoEtapa) {
+    public Jugador(JugadorId entityId, Nombre nombre, Capital capital) {
         super(entityId);
         this.nombre = nombre;
         this.capital = capital;
-        this.propuesta = propuesta;
-        this.jugandoEtapa = jugandoEtapa;
     }
 
-    public Jugador(JugadorId entityId, Nombre nombre){
-        super(entityId);
-        this.nombre = nombre;
-        this.capital = new Capital(0);
+    public void aumentarCapital(Integer valor) {
+        this.capital = this.capital.aumentar(valor);
     }
 
-    public Nombre getNombre() {
+    public Capital capital() {
+        return capital;
+    }
+
+    public Nombre nombre() {
         return nombre;
     }
 }

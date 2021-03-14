@@ -19,6 +19,7 @@ public class Ronda extends AggregateEvent<RondaId> {
     protected Map<DadoId, Dado> dados;
     protected Map<EtapaId, Etapa> etapas;
     protected Map<JuegoId, Punto> puntaje;
+    protected Set<JugadorId> jugadorIds;
 
     public Ronda(RondaId entityId, JuegoId juegoId, Set<JugadorId> jugadorIds) {
         super(entityId);

@@ -1,12 +1,27 @@
 package domain.juego.values;
 
 import co.com.sofka.domain.generic.Identity;
+import co.com.sofka.domain.generic.ValueObject;
 
-public class Capital extends Identity {
+import java.util.Objects;
 
-    private final Integer saldo;
+public class Capital implements ValueObject<Integer> {
 
-    public Capital(Integer saldo) {
-        this.saldo = saldo;
+    private final Integer value;
+
+    public Capital(Integer value) {
+        this.value = Objects.requireNonNull(value);
+        if (value < 0) {
+            throw new IllegalArgumentException("El valor del capital no puede ser negativo");
+        }
+    }
+
+    public Capital aumentar(Integer value) {
+        return new Capital(this.value + value);
+    }
+
+    @Override
+    public Integer value() {
+        return value;
     }
 }

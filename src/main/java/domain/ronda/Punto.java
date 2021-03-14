@@ -6,7 +6,7 @@ import domain.juego.values.JuegoId;
 public class Punto extends Entity<JuegoId> {
 
     private Integer valor;
-    
+
     public Punto(JuegoId entityId) {
         super(entityId);
         this.valor = 0;

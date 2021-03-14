@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Case implements ValueObject<Case.valor> {
+public class Case implements ValueObject<Case.Valor> {
 
     private final Adivinanza adivinanza;
     private final Apuesta apuesta;

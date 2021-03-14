@@ -21,6 +21,7 @@ public class CrearRondaUseCase extends UseCase<TriggeredEvent<JuegoIniciado>, Re
         if (event.getJugadoresIds().size() < 2) {
             throw new BusinessException(rondaId.value(), "No se puede crear la ronda por falta de jugadores");
         }
+
         emit().onResponse(new ResponseEvents(ronda.getUncommittedChanges()));
 
     }

@@ -13,4 +13,8 @@ public class JuegoIniciado extends DomainEvent {
         super("NoMeMientas.juego.iniciado");
         this.jugadoresIds = jugadoresIds;
     }
+
+    public Set<JugadorId> getJugadoresIds() {
+        return jugadoresIds;
+    }
 }

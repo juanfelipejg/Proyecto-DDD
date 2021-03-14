@@ -14,7 +14,7 @@ public class AgregarJugadorUseCase extends UseCase<RequestCommand<AgregarJugador
         var command = agregarJugadorRequestCommand.getCommand();
 
         var juego = Juego.from(command.getJuegoId(), retrieveEvents());
-        juego.agregarJugador(command.getJugadorId(), command.getNombre());
+        juego.agregarJugador(command.getJugadorId(), command.getNombre(), command.getCapital());
         emit().onResponse(new ResponseEvents(juego.getUncommittedChanges()));
     }
 }

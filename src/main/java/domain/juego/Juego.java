@@ -4,16 +4,15 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import domain.juego.events.JuegoCreado;
 import domain.juego.events.JuegoIniciado;
+import domain.juego.events.JugadorAdicionado;
 import domain.juego.events.JugadorAgregado;
-import domain.juego.values.JuegoId;
-import domain.juego.values.JugadorId;
-import domain.juego.values.Nombre;
-import domain.juego.values.RondaId;
+import domain.juego.factory.JugadorFactory;
+import domain.juego.values.*;
 
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
 
 public class Juego extends AggregateEvent<JuegoId> {
 
@@ -22,12 +21,11 @@ public class Juego extends AggregateEvent<JuegoId> {
     protected Boolean juegoIniciado;
     protected Boolean juegoTerminado;
 
-    public Juego(JuegoId entityId, Set<Jugador> jugadores) {
+    public Juego(JuegoId entityId, JugadorFactory jugadorFactory) {
         super(entityId);
-        Map<JugadorId, Jugador> newJugadores = new HashMap<>();
-        jugadores.forEach(jugador -> newJugadores.put(jugador.identity(), jugador));
-        //Adjuntar cambio a un agregado
-        appendChange(new JuegoCreado(newJugadores)).apply();
+        appendChange(new JuegoCreado(entityId)).apply();
+        jugadorFactory.jugadores()
+                .forEach(jugador -> adicionarJugador(jugador.identity(), jugador.nombre(), jugador.capital()));
     }
 
     public Juego(JuegoId entityId){
@@ -42,10 +40,16 @@ public class Juego extends AggregateEvent<JuegoId> {
         return juego;
     }
 
-    public void agregarJugador(JugadorId jugadorId, Nombre nombre){
-        appendChange(new JugadorAgregado(jugadorId,nombre)).apply();
+    public void adicionarJugador(JugadorId jugadorId, Nombre nombre, Capital capital) {
+        appendChange(new JugadorAdicionado(jugadorId, nombre, capital)).apply();
     }
 
-    public void iniciarJuego() { appendChange(new JuegoIniciado()).apply();
+    public void agregarJugador(JugadorId jugadorId, Nombre nombre, Capital capital){
+        appendChange(new JugadorAgregado(jugadorId,nombre, capital)).apply();
+    }
+
+    public void iniciarJuego() {
+        var jugadoresIds = jugadores.keySet();
+        appendChange(new JuegoIniciado(jugadoresIds)).apply();
     }
 }

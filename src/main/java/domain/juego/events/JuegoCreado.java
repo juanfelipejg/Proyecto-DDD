@@ -1,21 +1,18 @@
 package domain.juego.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import domain.juego.Jugador;
-import domain.juego.values.JugadorId;
-
-import java.util.Map;
+import domain.juego.values.JuegoId;
 
 public class JuegoCreado extends DomainEvent {
 
-    private final Map<JugadorId, Jugador> jugadores;
+    private final JuegoId juegoId;
 
-    public JuegoCreado(Map<JugadorId, Jugador> jugadores) {
+    public JuegoCreado(JuegoId juegoId) {
         super("NoMeMientas.domain.juego");
-        this.jugadores = jugadores;
+        this.juegoId = juegoId;
     }
 
-    public Map<JugadorId, Jugador> getJugadores() {
-        return jugadores;
+    public JuegoId getJuegoId() {
+        return juegoId;
     }
 }

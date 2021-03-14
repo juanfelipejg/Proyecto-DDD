@@ -3,6 +3,7 @@ package domain.juego;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import domain.juego.events.JuegoCreado;
+import domain.juego.events.JuegoIniciado;
 import domain.juego.events.JugadorAgregado;
 import domain.juego.values.JuegoId;
 import domain.juego.values.JugadorId;
@@ -25,6 +26,7 @@ public class Juego extends AggregateEvent<JuegoId> {
         super(entityId);
         Map<JugadorId, Jugador> newJugadores = new HashMap<>();
         jugadores.forEach(jugador -> newJugadores.put(jugador.identity(), jugador));
+        //Adjuntar cambio a un agregado
         appendChange(new JuegoCreado(newJugadores)).apply();
     }
 
@@ -33,6 +35,7 @@ public class Juego extends AggregateEvent<JuegoId> {
         subscribe(new JuegoChange(this));
     }
 
+    //Reconstrucción del agregado y posteriormente aplico los eventos
     public static Juego from (JuegoId entityId, List<DomainEvent> events){
         var juego = new Juego(entityId);
         events.forEach(juego::applyEvent);
@@ -43,8 +46,6 @@ public class Juego extends AggregateEvent<JuegoId> {
         appendChange(new JugadorAgregado(jugadorId,nombre)).apply();
     }
 
-
-
-
-
+    public void iniciarJuego() { appendChange(new JuegoIniciado()).apply();
+    }
 }

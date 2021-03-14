@@ -2,6 +2,7 @@ package domain.juego;
 
 import co.com.sofka.domain.generic.EventChange;
 import domain.juego.events.JuegoCreado;
+import domain.juego.events.JuegoIniciado;
 import domain.juego.events.JugadorAgregado;
 
 public class JuegoChange extends EventChange {
@@ -20,6 +21,13 @@ public class JuegoChange extends EventChange {
             }else {
                 throw new IllegalArgumentException("No se pueden ingresar mas jugadores");
             }
+        });
+
+        apply((JuegoIniciado) -> {
+            if(Boolean.TRUE.equals(juego.juegoIniciado)){
+                throw new IllegalArgumentException("El juego ya esta iniciado");
+            }
+            juego.juegoIniciado = Boolean.TRUE;
         });
 
     }

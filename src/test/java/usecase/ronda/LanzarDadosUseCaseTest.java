@@ -1,4 +1,4 @@
-package usecase;
+package usecase.ronda;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;

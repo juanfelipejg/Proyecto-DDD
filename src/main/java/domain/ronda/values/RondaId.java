@@ -1,15 +1,14 @@
-package domain.ronda.values;
+package domain.juego.values;
 
 import co.com.sofka.domain.generic.Identity;
 
 public class RondaId extends Identity {
 
-    private RondaId(String uid){
+    private RondaId(String uid) {
         super(uid);
     }
 
-    public RondaId() {
-    }
+    public RondaId(){}
 
     public static RondaId of(String uid) {
         return new RondaId(uid);

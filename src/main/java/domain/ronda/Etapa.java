@@ -6,19 +6,16 @@ import domain.ronda.values.Cara;
 import domain.ronda.values.Case;
 import domain.ronda.values.EtapaId;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Etapa extends Entity<EtapaId> {
 
-    private final Set<Cara> carasVisibles;
+    private final List carasVisibles;
     private final Map<JugadorId, Case> cases;
 
-    public Etapa(EtapaId entityId) {
+    public Etapa(EtapaId entityId, List<Cara> carasVisibles) {
         super(entityId);
-        this.carasVisibles = new HashSet<>();
+        this.carasVisibles = carasVisibles;
         this.cases = new HashMap<>();
     }
 
@@ -34,7 +31,7 @@ public class Etapa extends Entity<EtapaId> {
         return cases;
     }
 
-    public Set<Cara> carasVisibles() {
+    public List carasVisibles() {
         return carasVisibles;
     }
 }

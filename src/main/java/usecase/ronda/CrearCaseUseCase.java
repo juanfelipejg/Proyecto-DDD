@@ -16,6 +16,6 @@ public class CrearCaseUseCase extends UseCase<RequestCommand<CrearCase>, Respons
         var command = etapaInicialCreadaRequestCommand.getCommand();
         var rondaId = new RondaId();
         var ronda = Ronda.from(rondaId, retrieveEvents());
-        ronda.recibirCases(command.getJugadorId(), command.getAdivinanza(), command.getApuesta());
+        ronda.recibirCases(command.getEtapaId(), command.getJugadorId(), command.getAdivinanza(), command.getApuesta());
     }
 }

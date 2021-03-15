@@ -1,9 +1,11 @@
 package domain.ronda;
 
 import co.com.sofka.domain.generic.EventChange;
+import domain.ronda.events.CaseCreado;
 import domain.ronda.events.DadosLanzados;
 import domain.ronda.events.EtapaInicialCreada;
 import domain.ronda.events.RondaCreada;
+import domain.ronda.values.Case;
 import domain.ronda.values.DadoId;
 
 import java.util.HashMap;
@@ -30,6 +32,11 @@ public class RondaChange extends EventChange {
 
         apply((EtapaInicialCreada event) -> {
             ronda.etapas.put(event.getEtapaId(), new Etapa(event.getEtapaId(), event.getCarasVisibles()));
+        });
+
+        apply((CaseCreado event) -> {
+            Etapa etapa = ronda.etapas.get(event.getEtapaId());
+            etapa.aggregarCases(event.getJugadorId(), new Case(event.getAdivinanza(), event.getApuesta()));
         });
 
     }

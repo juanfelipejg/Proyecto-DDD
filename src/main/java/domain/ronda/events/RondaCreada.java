@@ -12,7 +12,7 @@ public class RondaCreada extends DomainEvent {
     private final JuegoId juegoId;
 
     public RondaCreada(Set<JugadorId> jugadorIds, JuegoId juegoId) {
-        super("nomemientan.ronda.creada");
+        super("NoMeMientas.domain.rondaCreada");
         this.jugadorIds = jugadorIds;
         this.juegoId = juegoId;
     }

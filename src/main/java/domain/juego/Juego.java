@@ -8,6 +8,7 @@ import domain.juego.events.JugadorAdicionado;
 import domain.juego.events.JugadorAgregado;
 import domain.juego.factory.JugadorFactory;
 import domain.juego.values.*;
+import domain.ronda.values.RondaId;
 
 
 import java.util.List;
@@ -24,8 +25,7 @@ public class Juego extends AggregateEvent<JuegoId> {
     public Juego(JuegoId entityId, JugadorFactory jugadorFactory) {
         super(entityId);
         appendChange(new JuegoCreado(entityId)).apply();
-        jugadorFactory.jugadores()
-                .forEach(jugador -> adicionarJugador(jugador.identity(), jugador.nombre(), jugador.capital()));
+        jugadorFactory.jugadores().forEach(jugador -> adicionarJugador(jugador.identity(), jugador.nombre(), jugador.capital()));
     }
 
     public Juego(JuegoId entityId){

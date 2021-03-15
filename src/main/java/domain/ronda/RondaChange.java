@@ -1,6 +1,7 @@
 package domain.ronda;
 
 import co.com.sofka.domain.generic.EventChange;
+import domain.ronda.events.DadosLanzados;
 import domain.ronda.events.RondaCreada;
 import domain.ronda.values.DadoId;
 
@@ -21,6 +22,10 @@ public class RondaChange extends EventChange {
                 ronda.dados.put(DadoId.of(i), new Dado(DadoId.of(i)));
             }
         });
+
+        apply((DadosLanzados event) -> {
+            ronda.caras = event.getCaras();
+            });
 
     }
 }

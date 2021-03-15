@@ -6,7 +6,7 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;
 import domain.juego.events.JuegoIniciado;
 import domain.juego.values.JuegoId;
-import domain.juego.values.RondaId;
+import domain.ronda.values.RondaId;
 import domain.ronda.Ronda;
 
 public class CrearRondaUseCase extends UseCase<TriggeredEvent<JuegoIniciado>, ResponseEvents> {

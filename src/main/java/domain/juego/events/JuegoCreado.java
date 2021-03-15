@@ -8,7 +8,7 @@ public class JuegoCreado extends DomainEvent {
     private final JuegoId juegoId;
 
     public JuegoCreado(JuegoId juegoId) {
-        super("NoMeMientas.domain.juego");
+        super("NoMeMientas.domain.juegoCreado");
         this.juegoId = juegoId;
     }
 

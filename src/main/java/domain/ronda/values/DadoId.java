@@ -8,6 +8,10 @@ public class DadoId extends Identity {
         super(num.toString());
     }
 
+    public DadoId(){
+
+    }
+
     public static DadoId of(Integer num) {
         return new DadoId(num);
     }

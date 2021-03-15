@@ -2,6 +2,7 @@ package domain.ronda;
 
 import co.com.sofka.domain.generic.EventChange;
 import domain.ronda.events.DadosLanzados;
+import domain.ronda.events.EtapaInicialCreada;
 import domain.ronda.events.RondaCreada;
 import domain.ronda.values.DadoId;
 
@@ -25,7 +26,11 @@ public class RondaChange extends EventChange {
 
         apply((DadosLanzados event) -> {
             ronda.caras = event.getCaras();
-            });
+        });
+
+        apply((EtapaInicialCreada event) -> {
+            ronda.etapas.put(event.getEtapaId(), new Etapa(event.getEtapaId(), event.getCaras()));
+        });
 
     }
 }

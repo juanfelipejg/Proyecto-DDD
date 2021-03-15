@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import domain.juego.values.JuegoId;
 import domain.juego.values.JugadorId;
 import domain.ronda.events.DadosLanzados;
+import domain.ronda.events.EtapaInicialCreada;
 import domain.ronda.values.Cara;
 import domain.ronda.values.RondaId;
 import domain.ronda.events.RondaCreada;
@@ -42,5 +43,9 @@ public class Ronda extends AggregateEvent<RondaId> {
 
     public void lanzarDados(List<Cara> caras) {
         appendChange(new DadosLanzados(caras)).apply();
+    }
+
+    public void insertarEtapaInicial(EtapaId etapaId, List<Cara> caras) {
+        appendChange(new EtapaInicialCreada(etapaId,caras)).apply();
     }
 }

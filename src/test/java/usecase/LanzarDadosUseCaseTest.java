@@ -4,26 +4,20 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import domain.juego.events.JuegoCreado;
-import domain.juego.events.JugadorAdicionado;
-import domain.juego.values.Capital;
 import domain.juego.values.JuegoId;
 import domain.juego.values.JugadorId;
-import domain.juego.values.Nombre;
 import domain.ronda.events.DadosLanzados;
 import domain.ronda.events.RondaCreada;
-import domain.ronda.values.RondaId;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import usecase.ronda.LanzarDadosUseCase;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

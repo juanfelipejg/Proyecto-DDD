@@ -11,6 +11,7 @@ import domain.juego.values.Nombre;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import domain.juego.values.JugadorId;
+import usecase.juego.CrearJuegoUseCase;
 
 import java.util.Map;
 import java.util.Objects;

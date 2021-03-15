@@ -1,4 +1,4 @@
-package usecase;
+package usecase.ronda;
 
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;

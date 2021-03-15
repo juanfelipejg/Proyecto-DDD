@@ -7,10 +7,9 @@ import domain.juego.values.JugadorId;
 import domain.ronda.events.RondaCreada;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import usecase.ronda.CrearRondaUseCase;
 
 import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CrearRondaUseCaseTest {
 

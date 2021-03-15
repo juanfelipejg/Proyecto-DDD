@@ -4,7 +4,6 @@ import co.com.sofka.domain.generic.Entity;
 import domain.juego.values.Capital;
 import domain.juego.values.JugadorId;
 import domain.juego.values.Nombre;
-import domain.juego.values.Propuesta;
 
 public class Jugador extends Entity<JugadorId> {
 

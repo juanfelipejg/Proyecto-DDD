@@ -1,19 +1,18 @@
-package domain.ronda.events;
+package domain.ronda.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import domain.juego.values.JugadorId;
 import domain.ronda.values.Adivinanza;
 import domain.ronda.values.Apuesta;
 
-public class CaseCreado extends DomainEvent {
+public class CrearCase implements Command {
 
     private final JugadorId jugadorId;
     private final Adivinanza adivinanza;
     private final Apuesta apuesta;
 
 
-    public CaseCreado(JugadorId jugadorId, Adivinanza adivinanza, Apuesta apuesta) {
-        super("NoMeMientas.domain.casoCreado");
+    public CrearCase(JugadorId jugadorId, Adivinanza adivinanza, Apuesta apuesta) {
         this.jugadorId = jugadorId;
         this.adivinanza = adivinanza;
         this.apuesta = apuesta;

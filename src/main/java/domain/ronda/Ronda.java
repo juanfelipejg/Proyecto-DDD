@@ -4,13 +4,11 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import domain.juego.values.JuegoId;
 import domain.juego.values.JugadorId;
+import domain.ronda.commands.CrearCase;
 import domain.ronda.events.DadosLanzados;
 import domain.ronda.events.EtapaInicialCreada;
-import domain.ronda.values.Cara;
-import domain.ronda.values.RondaId;
+import domain.ronda.values.*;
 import domain.ronda.events.RondaCreada;
-import domain.ronda.values.DadoId;
-import domain.ronda.values.EtapaId;
 
 import java.util.List;
 import java.util.Map;
@@ -47,5 +45,9 @@ public class Ronda extends AggregateEvent<RondaId> {
 
     public void insertarEtapaInicial(EtapaId etapaId, List<Cara> caras) {
         appendChange(new EtapaInicialCreada(etapaId,caras)).apply();
+    }
+
+    public void recibirCases(JugadorId jugadorId, Adivinanza adivinanza, Apuesta apuesta) {
+        appendChange(new CrearCase(jugadorId,adivinanza,apuesta)).apply();
     }
 }

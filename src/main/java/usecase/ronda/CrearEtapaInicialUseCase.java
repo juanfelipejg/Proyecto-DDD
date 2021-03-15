@@ -4,7 +4,6 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;
-import domain.juego.values.JuegoId;
 import domain.ronda.Ronda;
 import domain.ronda.events.DadosLanzados;
 import domain.ronda.values.EtapaId;

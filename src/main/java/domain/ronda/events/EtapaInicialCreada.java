@@ -10,21 +10,22 @@ import java.util.List;
 public class EtapaInicialCreada extends DomainEvent {
 
     private final EtapaId etapaId;
-    private final List<Cara> caras;
+    private final List<Cara> carasVisibles;
 
     public EtapaInicialCreada(EtapaId etapaId, List<Cara> caras) {
         super("nomemientan.ronda.etapacreada");
         this.etapaId = etapaId;
-        this.caras = caras;
+        this.carasVisibles = caras;
     }
-    public List<Cara> getCaras() {
+    public List<Cara> getCarasVisibles() {
 
-        List<Cara> carasVisibles = new ArrayList<>();
+        List<Cara> caras = new ArrayList<>();
         for(int i = 0; i < 3; i++){
-            carasVisibles.add(this.caras.get(i));
+            caras.add(this.carasVisibles.get(i));
         }
 
-        return carasVisibles;
+
+        return caras;
     }
 
     public EtapaId getEtapaId() {

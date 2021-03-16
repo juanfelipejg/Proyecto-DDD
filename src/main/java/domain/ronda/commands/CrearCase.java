@@ -2,8 +2,8 @@ package domain.ronda.commands;
 
 import co.com.sofka.domain.generic.Command;
 import domain.juego.values.JugadorId;
-import domain.ronda.values.Adivinanza;
-import domain.ronda.values.Apuesta;
+import domain.juego.values.Adivinanza;
+import domain.juego.values.Apuesta;
 import domain.ronda.values.EtapaId;
 
 public class CrearCase implements Command {

@@ -1,6 +1,8 @@
 package domain.ronda.values;
 
 import co.com.sofka.domain.generic.ValueObject;
+import domain.juego.values.Adivinanza;
+import domain.juego.values.Apuesta;
 
 import java.util.Objects;
 

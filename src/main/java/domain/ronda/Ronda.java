@@ -2,6 +2,8 @@ package domain.ronda;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import domain.juego.values.Adivinanza;
+import domain.juego.values.Apuesta;
 import domain.juego.values.JuegoId;
 import domain.juego.values.JugadorId;
 import domain.ronda.events.CaseCreado;

@@ -6,11 +6,8 @@ import domain.juego.values.Adivinanza;
 import domain.juego.values.Apuesta;
 import domain.juego.values.JuegoId;
 import domain.juego.values.JugadorId;
-import domain.ronda.events.CaseCreado;
-import domain.ronda.events.DadosLanzados;
-import domain.ronda.events.EtapaInicialCreada;
+import domain.ronda.events.*;
 import domain.ronda.values.*;
-import domain.ronda.events.RondaCreada;
 
 import java.util.List;
 import java.util.Map;
@@ -51,5 +48,9 @@ public class Ronda extends AggregateEvent<RondaId> {
 
     public void recibirCases(EtapaId etapaId, JugadorId jugadorId, Adivinanza adivinanza, Apuesta apuesta) {
         appendChange(new CaseCreado(etapaId, jugadorId,adivinanza,apuesta)).apply();
+    }
+
+    public void insertarEtapaMedia(EtapaId etapaId, List<Cara> caras) {
+        appendChange(new EtapaMediaCreada(etapaId,caras)).apply();
     }
 }

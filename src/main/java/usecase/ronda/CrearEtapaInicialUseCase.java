@@ -16,8 +16,7 @@ public class CrearEtapaInicialUseCase extends UseCase<TriggeredEvent<DadosLanzad
     public void executeUseCase(TriggeredEvent<DadosLanzados> dadosLanzadosTriggeredEvent) {
 
         var event = dadosLanzadosTriggeredEvent.getDomainEvent();
-        var rondaId = new RondaId();
-        var ronda = Ronda.from(rondaId, retrieveEvents());
+        var ronda = Ronda.from(RondaId.of(event.aggregateRootId()), retrieveEvents());
         var etapaId = EtapaId.of(1);
         try{
             ronda.insertarEtapaInicial(etapaId, event.getCaras());

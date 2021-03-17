@@ -40,6 +40,10 @@ public class RondaChange extends EventChange {
             ronda.etapas.put(event.getEtapaId(), new Etapa(event.getEtapaId(), event.getCarasVisibles()));
         });
 
+        apply((JugadorEliminado event) -> {
+            ronda.jugadorIds.remove(event.getJugadorId());
+        });
+
 
 
     }

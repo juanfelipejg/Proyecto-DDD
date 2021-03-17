@@ -53,4 +53,8 @@ public class Ronda extends AggregateEvent<RondaId> {
     public void insertarEtapaMedia(EtapaId etapaId, List<Cara> caras) {
         appendChange(new EtapaMediaCreada(etapaId,caras)).apply();
     }
+
+    public void eliminarJugador(JugadorId jugadorId) {
+        appendChange(new JugadorEliminado(jugadorId)).apply();
+    }
 }

@@ -5,16 +5,19 @@ import domain.juego.values.Capital;
 import domain.juego.values.JuegoId;
 import domain.juego.values.JugadorId;
 import domain.juego.values.Nombre;
+import domain.ronda.values.RondaId;
 
 public class EliminarJugador implements Command {
 
     private final JuegoId juegoId;
+    private final RondaId rondaId;
     private final JugadorId jugadorId;
     private final Nombre nombre;
     private final Capital capital;
 
-    public EliminarJugador(JuegoId juegoId, JugadorId jugadorId, Nombre nombre, Capital capital) {
+    public EliminarJugador(JuegoId juegoId, RondaId rondaId, JugadorId jugadorId, Nombre nombre, Capital capital) {
         this.juegoId = juegoId;
+        this.rondaId = rondaId;
         this.jugadorId = jugadorId;
         this.nombre = nombre;
         this.capital = capital;
@@ -22,6 +25,10 @@ public class EliminarJugador implements Command {
 
     public JuegoId getJuegoId() {
         return juegoId;
+    }
+
+    public RondaId getRondaId() {
+        return rondaId;
     }
 
     public JugadorId getJugadorId() {

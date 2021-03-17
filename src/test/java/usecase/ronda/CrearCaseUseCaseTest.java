@@ -24,6 +24,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -57,7 +58,7 @@ class CrearCaseUseCaseTest {
                 .getDomainEvents();
 
         var event = (CaseCreado) events.get(0);
-        //Assertions.assertEquals(1, event.getEtapaId().value());
+        Assertions.assertTrue(Objects.nonNull(event.getEtapaId()));
         Assertions.assertEquals("xxxx", event.getJugadorId().value());
         Assertions.assertEquals(1000, event.getApuesta().value());
         Assertions.assertEquals(3, event.getAdivinanza().value().numero());

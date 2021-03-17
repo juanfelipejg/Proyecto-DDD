@@ -1,10 +1,7 @@
 package domain.ronda;
 
 import co.com.sofka.domain.generic.EventChange;
-import domain.ronda.events.CaseCreado;
-import domain.ronda.events.DadosLanzados;
-import domain.ronda.events.EtapaInicialCreada;
-import domain.ronda.events.RondaCreada;
+import domain.ronda.events.*;
 import domain.ronda.values.Case;
 import domain.ronda.values.DadoId;
 
@@ -38,6 +35,12 @@ public class RondaChange extends EventChange {
             Etapa etapa = ronda.etapas.get(event.getEtapaId());
             etapa.aggregarCases(event.getJugadorId(), new Case(event.getAdivinanza(), event.getApuesta()));
         });
+
+        apply((EtapaMediaCreada event) -> {
+            ronda.etapas.put(event.getEtapaId(), new Etapa(event.getEtapaId(), event.getCarasVisibles()));
+        });
+
+
 
     }
 }

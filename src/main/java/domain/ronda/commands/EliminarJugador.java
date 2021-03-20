@@ -12,15 +12,11 @@ public class EliminarJugador implements Command {
     private final JuegoId juegoId;
     private final RondaId rondaId;
     private final JugadorId jugadorId;
-    private final Nombre nombre;
-    private final Capital capital;
 
-    public EliminarJugador(JuegoId juegoId, RondaId rondaId, JugadorId jugadorId, Nombre nombre, Capital capital) {
+    public EliminarJugador(JuegoId juegoId, RondaId rondaId, JugadorId jugadorId) {
         this.juegoId = juegoId;
         this.rondaId = rondaId;
         this.jugadorId = jugadorId;
-        this.nombre = nombre;
-        this.capital = capital;
     }
 
     public JuegoId getJuegoId() {
@@ -30,17 +26,8 @@ public class EliminarJugador implements Command {
     public RondaId getRondaId() {
         return rondaId;
     }
-
     public JugadorId getJugadorId() {
         return jugadorId;
-    }
-
-    public Nombre getNombre() {
-        return nombre;
-    }
-
-    public Capital getCapital() {
-        return capital;
     }
 
 }

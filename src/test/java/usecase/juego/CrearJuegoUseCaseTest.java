@@ -7,6 +7,7 @@ import domain.juego.command.CrearJuego;
 import domain.juego.events.JuegoCreado;
 import domain.juego.events.JugadorAdicionado;
 import domain.juego.values.Capital;
+import domain.juego.values.JuegoId;
 import domain.juego.values.Nombre;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,7 @@ class CrearJuegoUseCaseTest {
                 JugadorId.of("xxxxx"), new Capital(500),
                 JugadorId.of("ffff"), new Capital(500)
         );
-        var command = new CrearJuego(capitales, nombres);
+        var command = new CrearJuego(new JuegoId(), capitales, nombres);
         var useCase = new CrearJuegoUseCase();
 
         var events = UseCaseHandler.getInstance()
@@ -61,7 +62,7 @@ class CrearJuegoUseCaseTest {
         var capiltales = Map.of(
                 JugadorId.of("xxxxx"), new Capital(500)
         );
-        var command = new CrearJuego(capiltales, nombres);
+        var command = new CrearJuego(new JuegoId(), capiltales, nombres);
         var useCase = new CrearJuegoUseCase();
 
 

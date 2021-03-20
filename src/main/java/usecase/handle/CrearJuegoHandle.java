@@ -25,7 +25,7 @@ public class CrearJuegoHandle extends UseCaseExecutor {
     @Override
     public void run() {runUseCase(new CrearJuegoUseCase(),request);}
 
-
+    //Creación de un comando a partir de unos argumentos.
     @Override
     public void accept(Map<String, String> args) {
 
@@ -42,5 +42,6 @@ public class CrearJuegoHandle extends UseCaseExecutor {
     }
 
     request = new RequestCommand<>(new CrearJuego(JuegoId.of(aggregateId()), capitalesMap, nombresMap));
+
     }
 }

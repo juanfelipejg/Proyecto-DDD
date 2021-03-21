@@ -13,7 +13,7 @@ public class ResponseError {
         this.message = message;
         this.path = path;
     }
-    
+
     public int getStatus() {
         return status;
     }

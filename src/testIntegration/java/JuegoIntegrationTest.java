@@ -32,7 +32,7 @@ public class JuegoIntegrationTest extends CommandBaseIntegrationTest{
         ), 4 );
     }
 
-    /*@Test
+    @Test
     @Order(2)
     void inicializarJuego() {
         executor(Map.of(
@@ -42,5 +42,5 @@ public class JuegoIntegrationTest extends CommandBaseIntegrationTest{
                 fieldWithPath("commandType").description("Tipo de comando"),
                 fieldWithPath("aggregateId").description("Identificador del agregado")
         ), 3);
-    }*/
+    }
 }
